@@ -7,26 +7,33 @@ Dadas las ecuaciones del motor de corriente continua con torque de carga $T_L$ n
 
 
 
-   -  $\displaystyle L_{\textrm{AA}} =366\;{10}^{-6}$ 
-   -  $\displaystyle J=5\;{10}^{-9}$ 
+   -  $L_{AA} = 366 \ 10^{-6} $
+   -  $\displaystyle J=5\{10}^{-9}$ 
    -  $\displaystyle R_A =55\ldotp 6$ 
    -  $\displaystyle B_m =0$ 
-   - $\displaystyle K_i =6\ldotp 49\;{10}^{-3}$ 
-   -  $\displaystyle K_m =6\ldotp 53\;{10}^{-3}$ 
+   - $\displaystyle K_i =6\ldotp 49\{10}^{-3}$ 
+   -  $\displaystyle K_m =6\ldotp 53\{10}^{-3}$ 
 
 
 
 Modelado por las siguientes ecuaciones diferenciales:
 
 
+$$
+\frac{di_a}{dt} = -\frac{R_A}{L_{AA}}i_a - \frac{K_m}{L_{AA}}\omega _r + \frac{1}{L_{AA}} v_a
+$$
 
-   -  $\displaystyle \frac{{\textrm{di}}_a \;}{\textrm{dt}}=\frac{-R_A }{\;L_{\textrm{AA}} }*i_a -\frac{\;K_m }{\;L_{\textrm{AA}} }\omega_r +\frac{1\;}{L_{\textrm{AA}} }v_a$ 
-   -  $\displaystyle \frac{d\omega_r }{\textrm{dt}}=\frac{K_i \;}{J}i_a -\frac{B_m \;}{J}\omega {\;}_r -\frac{1\;}{J}T_L$ 
-   - $\displaystyle \frac{d\Theta_t }{\textrm{dt}}=\omega_r$ 
+$$
+\frac{d\omega_r }{dt}=\frac{K_i \}{J}i_a -\frac{B_m \}{J}\omega {\}_r -\frac{1\}{J}T_L
+$$
+
+$$
+\frac{d\Theta_t }{dt}=\omega_r
+$$
 
 
 
-Implementar un algoritmo de simulación para inferir el comportamiento de las variables interés  mediante integración Euler con $\Delta t={10}^{-7}$segundos para:
+Implementar un algoritmo de simulación para inferir el comportamiento de las variables interés  mediante integración Euler con $\Delta t = 10^{-7}$ segundos para:
 
 
 
@@ -111,7 +118,7 @@ end
 
 
 
-A continuación, se grafican las dos salidas del sistema planteado para una entrada de tensión que inicia en $0V$, luego, al cabo de $0\ldotp 025\;\textrm{seg}$ comienza a valer $12V$, para luego, a los $0\ldotp 125\;\textrm{seg}$ cambiar su signo, pasando a valer $-12V$.
+A continuación, se grafican las dos salidas del sistema planteado para una entrada de tensión que inicia en $0V$, luego, al cabo de $0\ldotp 025\;\textrm{seg}$ comienza a valer $12V$, para luego, a los $0\ldotp 125\\textrm{seg}$ cambiar su signo, pasando a valer $-12V$.
 
 
 
@@ -141,7 +148,7 @@ grid;
 
 
 
-Las gráficas anteriores son para simplemente comparar resultados con las gráficas brindadas por la consigna. Ahora, para continuar con lo solicitado, se ingresará el escalón de tensión de $12\;V$ y se simulará el sistema durante $5\;\textrm{seg}$.
+Las gráficas anteriores son para simplemente comparar resultados con las gráficas brindadas por la consigna. Ahora, para continuar con lo solicitado, se ingresará el escalón de tensión de $12V$ y se simulará el sistema durante $5\\textrm{seg}$.
 
 
 
@@ -218,7 +225,7 @@ grid;
 
 
 
-El problema pide mostrar simulaciones de $5\;\textrm{seg}$ que permitan observar la corriente $i_a$ en todo momento y establecer su valor pico para poder dimensionar dispositivos electrónicos. El gráfico de la corriente puede verse en la figura anterior. A continuación se muestra el pico de esa corriente.
+El problema pide mostrar simulaciones de $5\\textrm{seg}$ que permitan observar la corriente $i_a$ en todo momento y establecer su valor pico para poder dimensionar dispositivos electrónicos. El gráfico de la corriente puede verse en la figura anterior. A continuación se muestra el pico de esa corriente.
 
 
 
@@ -277,15 +284,15 @@ Ahora, para poder implementar el modelado de un sistema MIMO, es decir, múltipl
 
 
 $$
-{\textrm{sI}}_a \left(s\right)=-\frac{R_A \;}{L_{\textrm{AA}} }I_a \left(s\right)-\frac{K_m \;}{L_{\textrm{AA}} }\Omega {\;}_r \left(s\right)+\frac{1\;}{L_{\textrm{AA}} }V_a \left(s\right)
+{\textrm{sI}}_a \left(s\right)=-\frac{R_A}{L_{\textrm{AA}} }I_a \left(s\right)-\frac{K_m \}{L_{\textrm{AA}} }\Omega_r \left(s\right)+\frac{1\}{L_{\textrm{AA}} }V_a \left(s\right)
 $$
 
 $$
-s\Omega {\;}_r \left(s\right)=\frac{K_i \;}{J}I_a \left(s\right)-\frac{B_m \;}{J}\Omega {\;}_r \left(s\right)-\frac{1\;}{J}T_L \left(s\right)
+s\Omega _r \left(s\right)=\frac{K_i \}{J}I_a \left(s\right)-\frac{B_m \}{J}\Omega {\}_r \left(s\right)-\frac{1\}{J}T_L \left(s\right)
 $$
 
 $$
-s\Theta {\;}_t =\Omega {\;}_r \left(s\right)
+s\Theta _t =\Omega _r \left(s\right)
 $$
 
 ```matlab:Code
@@ -297,7 +304,7 @@ eq1 =
 
   
 $$
- I_a \,s=\frac{V_a }{L_{\textrm{AA}} }-\frac{K_m \,\Omega_r }{L_{\textrm{AA}} }-\frac{I_a \,R_A }{L_{\textrm{AA}} }
+ I_a s=\frac{V_a }{L_{\textrm{AA}} }-\frac{K_m \Omega_r }{L_{\textrm{AA}} }-\frac{I_a R_A }{L_{\textrm{AA}} }
 $$
 
 ```matlab:Code
@@ -308,7 +315,7 @@ eq2 =
 
   
 $$
- \Omega_r \,s=\frac{I_a \,K_i }{J}-\frac{B_m \,\Omega_r }{J}
+ \Omega_r s=\frac{I_a K_i }{J}-\frac{B_m \Omega_r }{J}
 $$
 
 
@@ -324,7 +331,7 @@ Omega_r =
 
   
 $$
- \frac{I_a \,K_i }{B_m +J\,s}
+ \frac{I_a K_i }{B_m +Js}
 $$
 
 ```matlab:Code
@@ -335,7 +342,7 @@ eq1 =
 
   
 $$
- I_a \,s=\frac{V_a }{L_{\textrm{AA}} }-\frac{I_a \,R_A }{L_{\textrm{AA}} }-\frac{I_a \,K_i \,K_m }{L_{\textrm{AA}} \,{\left(B_m +J\,s\right)}}
+ I_a s=\frac{V_a }{L_{\textrm{AA}} }-\frac{I_a R_A }{L_{\textrm{AA}} }-\frac{I_a K_i K_m }{L_{\textrm{AA}} \{\left(B_m +Js\right)}}
 $$
 
 ```matlab:Code
@@ -346,7 +353,7 @@ Ia_Va =
 
   
 $$
- \frac{J\,s+B_m }{{\left(J\,L_{\textrm{AA}} \right)}\,s^2 +{\left(B_m \,L_{\textrm{AA}} +J\,R_A \right)}\,s+B_m \,R_A +K_i \,K_m }
+ \frac{Js+B_m }{{\left(JL_{\textrm{AA}} \right)}s^2 +{\left(B_m L_{\textrm{AA}} +JR_A \right)}s+B_m R_A +K_i K_m }
 $$
 
 ```matlab:Code
@@ -360,7 +367,7 @@ I_a =
 
   
 $$
- \frac{B_m \,\Omega_r +J\,\Omega_r \,s}{K_i }
+ \frac{B_m \Omega_r +J \Omega_r s}{K_i }
 $$
 
 ```matlab:Code
@@ -371,7 +378,7 @@ eq1 =
 
   
 $$
- \frac{J\,\Omega_r }{K_i }\,s^2 +\frac{B_m \,\Omega_r }{K_i }\,s={\left(-\frac{J\,\Omega_r \,R_A }{K_i \,L_{\textrm{AA}} }\right)}\,s+\frac{V_a }{L_{\textrm{AA}} }-\frac{K_m \,\Omega_r }{L_{\textrm{AA}} }-\frac{B_m \,\Omega_r \,R_A }{K_i \,L_{\textrm{AA}} }
+ \frac{J\Omega_r }{K_i }s^2 +\frac{B_m \Omega_r }{K_i }s={\left(-\frac{J\Omega_r R_A }{K_i L_{\textrm{AA}} }\right)}s+\frac{V_a }{L_{\textrm{AA}} }-\frac{K_m \Omega_r }{L_{\textrm{AA}} }-\frac{B_m \Omega_r R_A }{K_i L_{\textrm{AA}} }
 $$
 
 ```matlab:Code
@@ -382,7 +389,7 @@ Omegar_Va =
 
   
 $$
- \frac{K_i }{{\left(J\,L_{\textrm{AA}} \right)}\,s^2 +{\left(B_m \,L_{\textrm{AA}} +J\,R_A \right)}\,s+B_m \,R_A +K_i \,K_m }
+ \frac{K_i }{{\left(JL_{\textrm{AA}} \right)}s^2 +{\left(B_m L_{\textrm{AA}} +JR_A \right)}s+B_m R_A +K_i K_m }
 $$
 
 
@@ -398,7 +405,7 @@ Thetar_Va =
 
   
 $$
- \frac{K_i }{{\left(J\,L_{\textrm{AA}} \right)}\,s^3 +{\left(B_m \,L_{\textrm{AA}} +J\,R_A \right)}\,s^2 +{\left(B_m \,R_A +K_i \,K_m \right)}\,s}
+ \frac{K_i }{{\left(JL_{\textrm{AA}} \right)}s^3 +{\left(B_m L_{\textrm{AA}} +JR_A \right)}s^2 +{\left(B_m R_A +K_i K_m \right)}s}
 $$
 
 
@@ -415,7 +422,7 @@ eq1 =
 
   
 $$
- I_a \,s=-\frac{K_m \,\Omega_r }{L_{\textrm{AA}} }-\frac{I_a \,R_A }{L_{\textrm{AA}} }
+ I_a s=-\frac{K_m \Omega_r }{L_{\textrm{AA}} }-\frac{I_a R_A }{L_{\textrm{AA}} }
 $$
 
 ```matlab:Code
@@ -426,7 +433,7 @@ eq2 =
 
   
 $$
- \Omega_r \,s=\frac{I_a \,K_i }{J}-\frac{B_m \,\Omega_r }{J}-\frac{T_L }{J}
+ \Omega_r s=\frac{I_a K_i }{J}-\frac{B_m \Omega_r }{J}-\frac{T_L }{J}
 $$
 
 ```matlab:Code
@@ -439,7 +446,7 @@ I_a =
 
   
 $$
- \frac{T_L }{J\,{\left(\frac{K_i }{J}+\frac{s\,{\left(R_A +L_{\textrm{AA}} \,s\right)}}{K_m }+\frac{B_m \,{\left(R_A +L_{\textrm{AA}} \,s\right)}}{J\,K_m }\right)}}
+ \frac{T_L }{J\{\left(\frac{K_i }{J}+\frac{s\{\left(R_A +L_{\textrm{AA}} s\right)}}{K_m }+\frac{B_m \{\left(R_A +L_{\textrm{AA}} s\right)}}{JK_m }\right)}}
 $$
 
 ```matlab:Code
@@ -450,7 +457,7 @@ Ia_TL =
 
   
 $$
- \frac{K_m }{{\left(J\,L_{\textrm{AA}} \right)}\,s^2 +{\left(B_m \,L_{\textrm{AA}} +J\,R_A \right)}\,s+B_m \,R_A +K_i \,K_m }
+ \frac{K_m }{{\left(JL_{\textrm{AA}} \right)}s^2 +{\left(B_m L_{\textrm{AA}} +JR_A \right)}s+B_m R_A +K_i K_m }
 $$
 
 ```matlab:Code
@@ -467,7 +474,7 @@ Omegar_TL =
 
   
 $$
- \frac{{\left(-L_{\textrm{AA}} \right)}\,s-R_A }{{\left(J\,L_{\textrm{AA}} \right)}\,s^2 +{\left(B_m \,L_{\textrm{AA}} +J\,R_A \right)}\,s+B_m \,R_A +K_i \,K_m }
+ \frac{{\left(-L_{\textrm{AA}} \right)}s-R_A }{{\left(JL_{\textrm{AA}} \right)}s^2 +{\left(B_m L_{\textrm{AA}} +JR_A \right)}s+B_m R_A +K_i K_m }
 $$
 
 ```matlab:Code
@@ -478,7 +485,7 @@ Thetar_TL =
 
   
 $$
- \frac{{\left(-L_{\textrm{AA}} \right)}\,s-R_A }{{\left(J\,L_{\textrm{AA}} \right)}\,s^3 +{\left(B_m \,L_{\textrm{AA}} +J\,R_A \right)}\,s^2 +{\left(B_m \,R_A +K_i \,K_m \right)}\,s}
+ \frac{{\left(-L_{\textrm{AA}} \right)}s-R_A }{{\left(JL_{\textrm{AA}} \right)}s^3 +{\left(B_m L_{\textrm{AA}} +JR_A \right)}s^2 +{\left(B_m R_A +K_i K_m \right)}s}
 $$
 
 
@@ -496,21 +503,21 @@ ans =
 $$
  \begin{array}{l}
 \left(\begin{array}{cc}
-\frac{J\,s+B_m }{\sigma_1 } & \frac{K_m }{\sigma_1 }\\
-\frac{K_i }{\sigma_1 } & \frac{{\left(-L_{\textrm{AA}} \right)}\,s-R_A }{\sigma_1 }\\
-\frac{K_i }{\sigma_2 } & \frac{{\left(-L_{\textrm{AA}} \right)}\,s-R_A }{\sigma_2 }
+\frac{Js+B_m }{\sigma_1 } & \frac{K_m }{\sigma_1 }\\
+\frac{K_i }{\sigma_1 } & \frac{{\left(-L_{\textrm{AA}} \right)}s-R_A }{\sigma_1 }\\
+\frac{K_i }{\sigma_2 } & \frac{{\left(-L_{\textrm{AA}} \right)}s-R_A }{\sigma_2 }
 \end{array}\right)\\
 \mathrm{}\\
 \textrm{where}\\
 \mathrm{}\\
-\;\;\sigma_1 ={\left(J\,L_{\textrm{AA}} \right)}\,s^2 +{\left(B_m \,L_{\textrm{AA}} +J\,R_A \right)}\,s+B_m \,R_A +K_i \,K_m \\
+\sigma_1 ={\left(JL_{\textrm{AA}} \right)}s^2 +{\left(B_m L_{\textrm{AA}} +JR_A \right)}s+B_m R_A +K_i K_m \\
 \mathrm{}\\
-\;\;\sigma_2 ={\left(J\,L_{\textrm{AA}} \right)}\,s^3 +{\left(B_m \,L_{\textrm{AA}} +J\,R_A \right)}\,s^2 +{\left(B_m \,R_A +K_i \,K_m \right)}\,s
+\sigma_2 ={\left(JL_{\textrm{AA}} \right)}s^3 +{\left(B_m L_{\textrm{AA}} +JR_A \right)}s^2 +{\left(B_m R_A +K_i K_m \right)}s
 \end{array}
 $$
 
 
-Es importante notar que las ecuaciones carácterísticas son exactamente iguales para las primeras 4 funciones de transferencia, lo que corrobora el modelado. Y luego, las funciones que relacionan la salida de $\Theta {\;}_t$ tienen la misma ecuación característica también, que resulta del producto entre las primeras ecuaciones carácterísticas por la variable de Laplace $s$.
+Es importante notar que las ecuaciones carácterísticas son exactamente iguales para las primeras 4 funciones de transferencia, lo que corrobora el modelado. Y luego, las funciones que relacionan la salida de $\Theta {\}_t$ tienen la misma ecuación característica también, que resulta del producto entre las primeras ecuaciones carácterísticas por la variable de Laplace $s$.
 
 
 
@@ -551,7 +558,7 @@ xlabel('Tiempo [s]');
 
 
 
-Para reconocer la función de transferencia junto con sus constantes escalares, se utiliza el método de Chen. Para ello, se define $t_1 =1\ldotp 9\;{10}^{-6} \;\textrm{seg}$. Se tienen así entonces:
+Para reconocer la función de transferencia junto con sus constantes escalares, se utiliza el método de Chen. Para ello, se define $t_1 =1\ldotp 9\{10}^{-6} \\textrm{seg}$. Se tienen así entonces:
 
 
 
@@ -699,29 +706,34 @@ grid;
 
 
 
-Se puede comprobar mediante la gráfica, que la aproximación a la función de transferencia $G\left(s\right)=\frac{\Omega {\;}_r \left(s\right)\;}{V_a \left(s\right)}$ es correcta. Ahora, con la definición de la misma se obtienen los parámetros intervinientes. Para que la función de transferencia tenga la forma que tiene la que devuelve Matlab, es necesario expresarla de otra manera, por ello se expresa la ecuación característica como:
+Se puede comprobar mediante la gráfica, que la aproximación a la función de transferencia $G\left(s\right)=\frac{\Omega _r \left(s\right)\}{V_a \left(s\right)}$ es correcta. Ahora, con la definición de la misma se obtienen los parámetros intervinientes. Para que la función de transferencia tenga la forma que tiene la que devuelve Matlab, es necesario expresarla de otra manera, por ello se expresa la ecuación característica como:
 
 
 
 
-$D\left(s\right)=s^2 +\frac{R_A }{L_{\textrm{AA}} }s+\frac{K_i K_m \;}{L_{\textrm{AA}} J}$.
+$$
+D\left(s\right)=s^2 +\frac{R_A }{L_{\textrm{AA}} }s+\frac{K_i K_m }{L_{\textrm{AA}} J}
+$$
 
 
 
 
-Como se tienen más incógnitas que ecuaciones, se debe suponer un valor de $L_{\textrm{AA}}$, se utiliza el de la consigna: $L_{\textrm{AA}} =366\mu \;\textrm{Hy}$, lo mismo sucede con el valor de $J=5\;{10}^{-9} \textrm{Kg}\;m^2$. Con eso:
+Como se tienen más incógnitas que ecuaciones, se debe suponer un valor de $L_{\textrm{AA}}$, se utiliza el de la consigna: $L_{\textrm{AA}} =366\mu \\textrm{Hy}$, lo mismo sucede con el valor de $J=5\{10}^{-9} \textrm{Kg}m^2$. Con eso:
 
 
 
-   \item{ $\displaystyle R_A =1\ldotp 999\;{10}^5 *366\;{10}^{-6} =73\ldotp 17\;\Omega \;$ }
+$$
+R_A =1\ldotp 999\ {10}^5 *366\ {10}^{-6} =73\ldotp 17\\Omega
+$$
 
 
 
 Luego, generalmente en los motores de corriente continua, las constantes de fuerza electromotriz y de torque poseen valores numéricos muy aproximados (obviando las unidades). Con esto en mente, es posible aproximar $K=K_i =K_m \Rightarrow K_i K_m =K^2$, es decir:
 
 
-
-   \item{ $\displaystyle K^2 =4\ldotp 871\;{10}^8 \;\;366\;{10}^{-6} \;\;5\;{10}^{-9} =8\ldotp 91\;{10}^{-4} \Rightarrow K=29\ldotp 8\;{10}^{-3}$ }
+$$
+K^2 =4\ldotp 871\ {10}^8\ 366\ {10}^{-6}\ 5\ {10}^{-9} =8\ldotp 91\ {10}^{-4} \Rightarrow K=29\ldotp 8\ {10}^{-3}
+$$
 
 
 
@@ -730,7 +742,7 @@ Con los valores de las constantes determinados, se debe obtener de forma numéri
 
 
 $$
-\frac{\Omega {\;}_r \left(s\right)}{T_L \left(s\right)}=\frac{-366\;{10}^{-6} s-73\ldotp 17}{1\ldotp 83\;{10}^{-12} s^3 +3\ldotp 66\;{10}^{-7} s^2 +8\ldotp 91\;{10}^{-4} s}
+\frac{\Omega {\}_r \left(s\right)}{T_L \left(s\right)}=\frac{-366\ {10}^{-6} s-73\ldotp 17}{1\ldotp 83\ {10}^{-12} s^3 +3\ldotp 66\ {10}^{-7} s^2 +8\ldotp 91\ {10}^{-4} s}
 $$
 
 ```matlab:Code
